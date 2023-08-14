@@ -1,0 +1,14 @@
+<launch>
+    <!-- Default value for sim time -->
+    <arg name="use_sim_time" default="false" doc="Use sim time if true"/>
+
+    <!-- Load the robot description parameter from the xacro file -->
+    <param name="robot_description" command="/opt/ros/noetic/lib/xacro/xacro $(find my_car)/description/robot.urdf.xacro" />
+
+    <!-- Launch the robot_state_publisher node -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen">
+        <param name="use_sim_time" value="$(arg use_sim_time)" />
+    </node>
+    
+
+</launch>
